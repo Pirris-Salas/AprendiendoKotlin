@@ -56,4 +56,64 @@ fun main(args: Array<String>){
     println(N) // N es declarado como variable global, y con un valor preasignado en tiempo de compilación
 
 
+
+
+    /**
+     * Esto corresponde a la clase acerca de Strings y sus diferentes métodos
+     */
+    val nombre = "Luis"
+    val apellido: String = "Salas" // Kotlin no es estrictamente tipado, no obstante es una buena práctica tipar las
+                                  //variables
+    val x: Int = 4                // Un ejemplo de tipado para las variables int
+
+    println("Tu nombre es: " +nombre +" " + apellido)  // esto está permitido, siendo esta la forma de imprimir variables en Java
+    println("Tu nombre es: $nombre $apellido") // esta es la forma predilecta de imprimir datos en Kotlin, la cual es
+                                               // muy similar a PHP, no obstante ambas son válidas
+
+    val ejemplo1 = "Luis\t- Tabula"
+    val ejemplo2 = "Luis\bRetrocede el cursor de texto 1 carácter"
+    val ejemplo3 = "Luis\nCrea un salto de linea"
+    val ejemplo4 = "Luis\rMueve el cursor de texto al inicio de la linea en la que está"
+    val ejemplo5 = "Luis\'puedo usar comilla simple"
+    val ejemplo6 = "Luis\"puedo usar comillas"
+    val ejemplo7 = "Luis\\puedo usar slash"
+    val ejemplo8 = "Luis\$puedo usar el símbolo de dolar"
+
+    println(ejemplo1)
+    println(ejemplo2)
+    println(ejemplo3)
+    println(ejemplo4)
+    println(ejemplo5)
+    println(ejemplo6)
+    println(ejemplo7)
+    println(ejemplo8)
+
+
+    // Raw String
+    val parrafo =  """Raw String: En Kotlin, además, tenemos cadenas sin procesar
+                      de tres comillas que pueden contener caracteres especiales sin 
+                      la necesidad de escapar de ellas. 
+                      .trimIndent(): Detecta una sangría mínima común de todas las 
+                      líneas de entrada, la elimina de cada línea y también elimina 
+                      la primera y la última si están en blanco.
+                      .trimMargin(): Recorta los caracteres de espacio en blanco iniciales 
+                      seguidos de un marginPrefix de cada línea de una cadena de origen y 
+                      elimina la primera y la última línea si están en blanco.""".trimIndent()
+
+    println(parrafo)
+
+    val parrafo2 = """** Raw String: En Kotlin, además, tenemos cadenas sin procesar
+                      ** de tres comillas que pueden contener caracteres especiales sin
+                      ** la necesidad de escapar de ellas. 
+                      ** .trimIndent(): Detecta una sangría mínima común de todas las 
+                      ** líneas de entrada, la elimina de cada línea y también elimina 
+                      ** la primera y la última si están en blanco.
+                      ** .trimMargin(): Recorta los caracteres de espacio en blanco iniciales 
+                      ** seguidos de un marginPrefix de cada línea de una cadena de origen y 
+                      ** elimina la primera y la última línea si están en blanco.""".trimMargin(marginPrefix = "** ")
+ // con marginPrefix filtramos los caracteres que deseamos remover de la impresión
+
+    println(parrafo2)
+
+
 }
