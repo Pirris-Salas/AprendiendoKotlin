@@ -115,5 +115,29 @@ fun main(args: Array<String>){
 
     println(parrafo2)
 
+    /**
+     * Clase acerca de rangos en Kotlin
+     */
+    val oneToFive = 1..5
+    for (i in oneToFive){ //La Variable oneToFive recorre los valores de 1 al 5 y los agrega en i de manera ascendente
+        println(i)
+    }
+
+    for (i in 5 downTo (1) ){ // Cuenta regresiva utilizando la funcion downTo(), no funciona con rangos
+        println(i)
+
+    }
+
+    val aToE = 'A'..'E'
+    for (letter in aToE){  //Imprime letras de manera secuencial en base al orden del abecedario
+
+        println(letter)
+
+    }
+
+ 
+
 
 }
+
+
