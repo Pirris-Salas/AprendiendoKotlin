@@ -135,7 +135,30 @@ fun main(args: Array<String>){
 
     }
 
- 
+
+    /**
+     * OPERADORES LÓGICOS / IF AND WHEN
+     */
+
+    val numero = 8
+    if (numero.equals(5)){
+        println("El número $numero es igual a 5")
+    }else{
+
+        println("El número: " + numero + " es diferente de 5")
+    }
+
+    //When, es similar a Switch y en el en todos los casos se utiliza con variables tipo rango
+    /**
+     * When, una vez que encuentra un caso válido entra en este y no continúa con el resto de las probabilidades
+     * Básicamente toma el primero que encuentra y se ejecuta, no es necesario colocar el indicador break
+     */
+    when(numero){
+        in 1..3 -> println("El número: $numero está dentro del rango de 1 a 3")
+        in 4..6 -> println("El número: $numero está en el rango de números de 4 a 6")
+        !in 10..11 -> println("El número $numero no es ni 10 o 11 ")
+        else -> println("El número $numero es incontrolable e inmedible")
+    }
 
 
 }
