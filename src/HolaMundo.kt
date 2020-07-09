@@ -135,9 +135,40 @@ fun main(args: Array<String>){
 
     }
 
- 
+    /**
+     * for and foreach
+     *
+     */
+    var daysOfWeek = listOf("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado")
 
+    for (i in daysOfWeek){
+        println(i)
+    }
 
+    /**
+     * Imprimiendo for con índices
+     * Al parecer los paréntesis nos ayudan a declarar varias variables dentro de un for
+     * Al parecer los índices siempre van a ir primero, de izquierda a derecha, por esa razón el orden de las variables
+     * declaradas
+     */
+     for ((index,day) in daysOfWeek.withIndex()){
+        println("$index :$day")
+     }
+
+    /**
+     * For each, una manera más simplificada de for, no obstante es mas lenta
+     * Revisar las distintas variaciones posibles encontradas
+     * IT es una variable tipo objeto receptora de los valores por default en foreach
+     */
+    daysOfWeek.forEach{
+        println(it)}
+
+    daysOfWeek.forEach{
+        println("Index: ${daysOfWeek.indexOf(it)} - $it")
+    }
+
+    daysOfWeek.withIndex().forEach{
+        println("${it.index} => ${it.value}")}
 }
 
 
