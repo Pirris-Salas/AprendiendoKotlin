@@ -160,6 +160,27 @@ fun main(args: Array<String>){
         else -> println("El número $numero es incontrolable e inmedible")
     }
 
+    /**
+     * Bucles While y doWhile en Kotlin
+     * While: Primero valida y luego ejecuta
+     * doWhile: Primero ejecuta y luego valida
+     */
+    var i = 1
+    while (i <= 10){
+
+
+        println("Estamos incrementando una variable tipo var, su valor es $i")
+        i = i.inc() // incrementa la variable i en 1 cada ciclo, una forma alterna de i++, o de i += 1
+    }
+
+    i = 1
+
+
+    // Primero ejecuta la sentencia y luego valida
+    do{
+        println("Estamos incrementando una variable tipo var, su valor es $i")
+        i++
+    }while (i <= 10)
 
 }
 
