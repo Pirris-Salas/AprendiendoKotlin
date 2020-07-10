@@ -222,6 +222,16 @@ fun main(args: Array<String>){
             }
         }
     }
+
+    /**
+     * Null and DoubleBang
+     */
+    val nula :Int? // SE DECLARA UNA VARIABLE NULA DE FORMA QUE KOTLIN NO ARROJA UN NullPointerException
+
+    var msg: String?
+    msg = null
+    println(msg!!.length) // Double bang !!, es para ejecutar la excepción, no obstante no es una buena práctica
+    
 }
 
 
