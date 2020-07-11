@@ -378,6 +378,36 @@ fun main(args: Array<String>) {
     // METODO .replace(), cambia en valor de un char a otro, con ${} podemos ejecutar hasta funciones dentro de las
     //mismas
 
+    /**
+     * CLASE ACERCA DE FUNCIONES
+     * ASÍ SE INVOCA UNA FUNCIÓN O AL MENOS ES UN EJEMPLO DE  LAS MUCHAS FORMAS QUE HAY
+     * A SU VEZ, ESTAMOS UTILIZANDO LA EXPRESION ${} PARA PASARLE LOS DATOS A UNA FUNCION Y TRAERLOS
+     * EXISTEN 2 FUNCIONES EN KOTLIN, FUNCIONES POR DEFECTO DE KOTLIN Y LAS QUE CREAMOS, UN EJEMPLO DE
+     * FUNCION POR DEFECTO ES .MATH()
+     */
+
+    val numeros: IntArray = intArrayOf(2,3,4,7)
+    println("El promedio del arreglo es: ${promedioNumeros(numeros, 2)}")
+
+}
+
+/**
+ * Esta funcion determina el promedio de un arreglo de numeros y le suma un número al final
+ * @param numeros Arreglo de números, o array
+ * @param n Variable que será sumada al promedio
+ * @return devuelve el promedio más un numero a elección
+ * En las funciones es importante declarar los tipos de variables dentro de los parentesis
+ * Y también es importante el tipo de dato a devolver, en este caso es (): Int, y se declara entre los parentesis
+ * y las llaves {}
+ */
+fun promedioNumeros (numeros: IntArray, n: Int): Int{
+
+    //Promedio de numeros
+    var sum = 0
+    for(a in numeros){
+        sum += a
+    }
+    return (sum / numeros.size) + n
 }
 
 
