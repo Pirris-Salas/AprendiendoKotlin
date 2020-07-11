@@ -362,6 +362,22 @@ fun main(args: Array<String>) {
         println("Array en orden original: $a")
     }
 
+
+    /**
+     * EN ESTA CLASE APRENDEREMOS ACERCA DE LAS EXPRESIONES Y LOS VALORES
+     * $ CON ESTE SÍMBOLO PODEMOS IMPRIMIR EL VALOR DE UNA OPERACIÓN
+     * ${} CON ESTA EXPRESIÓN PODEMOS REALIZAR OPERACIONES DENTRO DE LA FUNCIÓN DE IMPRESIÓN DE KOTLIN
+     */
+
+    var w = 5
+    println("w es igual a 5? ${w==5}") // DEBE DE DEVOLVER TRUE
+
+    var mensaje = "El valor de w es $w"
+    w = w.inc()
+    println("${mensaje.replace("es", "fue")}, el valor de w ahora es de $w")
+    // METODO .replace(), cambia en valor de un char a otro, con ${} podemos ejecutar hasta funciones dentro de las
+    //mismas
+
 }
 
 
