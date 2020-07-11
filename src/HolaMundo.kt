@@ -9,7 +9,7 @@ val j = "n" // Esto es válido, ya que val es una variable unchangeable, por lo 
 // de los métodos y no en variables globales como Const
 
 //Funciones Puras
-fun main(args: Array<String>){
+fun main(args: Array<String>) {
     println("Hola Mundo")
 
     val a = 4
@@ -42,7 +42,7 @@ fun main(args: Array<String>){
 
     val t = -12
     val r = 12
-    println("t es mayor que r. ${t>r}")
+    println("t es mayor que r. ${t > r}")
 
     /**
      * Esto es en tiempo de ejecución, ya que agregamos "Luis" como parámetro de args y el mismo es asignado hasta que se
@@ -50,12 +50,10 @@ fun main(args: Array<String>){
      * Val: Tiempo de ejecución
      * Const: Tiempo de compilación
      */
-    val name:String = args[0]
+    val name: String = args[0]
     println(name)
 
     println(N) // N es declarado como variable global, y con un valor preasignado en tiempo de compilación
-
-
 
 
     /**
@@ -63,12 +61,12 @@ fun main(args: Array<String>){
      */
     val nombre = "Luis"
     val apellido: String = "Salas" // Kotlin no es estrictamente tipado, no obstante es una buena práctica tipar las
-                                  //variables
+    //variables
     val x: Int = 4                // Un ejemplo de tipado para las variables int
 
-    println("Tu nombre es: " +nombre +" " + apellido)  // esto está permitido, siendo esta la forma de imprimir variables en Java
+    println("Tu nombre es: " + nombre + " " + apellido)  // esto está permitido, siendo esta la forma de imprimir variables en Java
     println("Tu nombre es: $nombre $apellido") // esta es la forma predilecta de imprimir datos en Kotlin, la cual es
-                                               // muy similar a PHP, no obstante ambas son válidas
+    // muy similar a PHP, no obstante ambas son válidas
 
     val ejemplo1 = "Luis\t- Tabula"
     val ejemplo2 = "Luis\bRetrocede el cursor de texto 1 carácter"
@@ -90,7 +88,7 @@ fun main(args: Array<String>){
 
 
     // Raw String
-    val parrafo =  """Raw String: En Kotlin, además, tenemos cadenas sin procesar
+    val parrafo = """Raw String: En Kotlin, además, tenemos cadenas sin procesar
                       de tres comillas que pueden contener caracteres especiales sin 
                       la necesidad de escapar de ellas. 
                       .trimIndent(): Detecta una sangría mínima común de todas las 
@@ -111,7 +109,7 @@ fun main(args: Array<String>){
                       ** .trimMargin(): Recorta los caracteres de espacio en blanco iniciales 
                       ** seguidos de un marginPrefix de cada línea de una cadena de origen y 
                       ** elimina la primera y la última línea si están en blanco.""".trimMargin(marginPrefix = "** ")
- // con marginPrefix filtramos los caracteres que deseamos remover de la impresión
+    // con marginPrefix filtramos los caracteres que deseamos remover de la impresión
 
     println(parrafo2)
 
@@ -119,17 +117,17 @@ fun main(args: Array<String>){
      * Clase acerca de rangos en Kotlin
      */
     val oneToFive = 1..5
-    for (i in oneToFive){ //La Variable oneToFive recorre los valores de 1 al 5 y los agrega en i de manera ascendente
+    for (i in oneToFive) { //La Variable oneToFive recorre los valores de 1 al 5 y los agrega en i de manera ascendente
         println(i)
     }
 
-    for (i in 5 downTo (1) ){ // Cuenta regresiva utilizando la funcion downTo(), no funciona con rangos
+    for (i in 5 downTo (1)) { // Cuenta regresiva utilizando la funcion downTo(), no funciona con rangos
         println(i)
 
     }
 
     val aToE = 'A'..'E'
-    for (letter in aToE){  //Imprime letras de manera secuencial en base al orden del abecedario
+    for (letter in aToE) {  //Imprime letras de manera secuencial en base al orden del abecedario
 
         println(letter)
 
@@ -140,9 +138,9 @@ fun main(args: Array<String>){
      */
 
     val numero = 8
-    if (numero.equals(5)){
+    if (numero.equals(5)) {
         println("El número $numero es igual a 5")
-    }else{
+    } else {
 
         println("El número: " + numero + " es diferente de 5")
     }
@@ -152,7 +150,7 @@ fun main(args: Array<String>){
      * When, una vez que encuentra un caso válido entra en este y no continúa con el resto de las probabilidades
      * Básicamente toma el primero que encuentra y se ejecuta, no es necesario colocar el indicador break
      */
-    when(numero){
+    when (numero) {
         in 1..3 -> println("El número: $numero está dentro del rango de 1 a 3")
         in 4..6 -> println("El número: $numero está en el rango de números de 4 a 6")
         !in 10..11 -> println("El número $numero no es ni 10 o 11 ")
@@ -163,9 +161,9 @@ fun main(args: Array<String>){
      * for and foreach
      *
      */
-    var daysOfWeek = listOf("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado")
+    var daysOfWeek = listOf("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado")
 
-    for (i in daysOfWeek){
+    for (i in daysOfWeek) {
         println(i)
     }
 
@@ -175,33 +173,35 @@ fun main(args: Array<String>){
      * Al parecer los índices siempre van a ir primero, de izquierda a derecha, por esa razón el orden de las variables
      * declaradas
      */
-     for ((index,day) in daysOfWeek.withIndex()){
+    for ((index, day) in daysOfWeek.withIndex()) {
         println("$index :$day")
-     }
+    }
 
     /**
      * For each, una manera más simplificada de for, no obstante es mas lenta
      * Revisar las distintas variaciones posibles encontradas
      * IT es una variable tipo objeto receptora de los valores por default en foreach
      */
-    daysOfWeek.forEach{
-        println(it)}
+    daysOfWeek.forEach {
+        println(it)
+    }
 
-    daysOfWeek.forEach{
+    daysOfWeek.forEach {
         println("Index: ${daysOfWeek.indexOf(it)} - $it")
     }
 
-    daysOfWeek.withIndex().forEach{
-        println("${it.index} => ${it.value}")}
+    daysOfWeek.withIndex().forEach {
+        println("${it.index} => ${it.value}")
+    }
 
     /**
      * CLASE DE BREAK, CONTINUE Y LABELS EN KOTLIN
      */
     //BREAK - Acá podemos ver 2 for anidados, i recorre 3 valores (1,2 y 3), mientras que j debería de recorrer 5, no
     //obstante se declara un if que al llegar j al valor de 3 se detenga e imprima los valores de las variables i y j
-    for (i in 1..3){
+    for (i in 1..3) {
         println("\ni: $i")
-        for (j in 1..5){
+        for (j in 1..5) {
             if (j.equals(3)) break
             println("j: $j")
         }
@@ -209,11 +209,11 @@ fun main(args: Array<String>){
 
     //CONTINUE - En este caso se declara un if en la que si la variable j es igual a 3 debe de continuar, lo que hace que
     //el print de 3 se omita y continue con los valores 4 y 5
-    for (i in 1..3){
+    for (i in 1..3) {
         println("\ni: $i")
-        for (j in 1..5){
+        for (j in 1..5) {
 
-            if (j.equals(3))continue
+            if (j.equals(3)) continue
             println("j: $j")
         }
     }
@@ -222,11 +222,11 @@ fun main(args: Array<String>){
     //siguiente ciclo al que saltará. Siempre irá acompañado por brak o continue
 
     //BREAK Y LABEL -- En este caso se termina el ciclo donde inicia y termina el label @terminarTodoCiclo
-     terminarTodoCiclo@for (i in 1..3){
+    terminarTodoCiclo@ for (i in 1..3) {
         println("\ni: $i")
-         for (j in 1..3){
+        for (j in 1..3) {
             println("\nj: $j")
-            for (k in 1..5){
+            for (k in 1..5) {
                 if (k.equals(3)) break@terminarTodoCiclo
                 println("k: $k")
             }
@@ -236,11 +236,11 @@ fun main(args: Array<String>){
     //CONTINUE UTILIZANDO LABEL-- hace saltar o escapar una iteración entera que en este caso es J.
     //
     println()
-    terminar@for (i in 1..3){
+    terminar@ for (i in 1..3) {
         println("\ni: $i")
-        for (j in 1..3){
+        for (j in 1..3) {
             println("\nj: $j")
-            for (k in 1..5){
+            for (k in 1..5) {
                 if (k.equals(3)) continue@terminar
                 println("k: $k")
             }
@@ -250,7 +250,7 @@ fun main(args: Array<String>){
     /**
      * Null and DoubleBang
      */
-    val nula :Int? // SE DECLARA UNA VARIABLE NULA DE FORMA QUE KOTLIN NO ARROJA UN NullPointerException
+    val nula: Int? // SE DECLARA UNA VARIABLE NULA DE FORMA QUE KOTLIN NO ARROJA UN NullPointerException
 
     //var msg: String?
     //msg = null
@@ -264,7 +264,7 @@ fun main(args: Array<String>){
     try {
         var computer: String? = null // SE DECLARA UNA VARIABLE NULA DE FORMA QUE KOTLIN NO ARROJA UN NullPointerException
         println(computer!!.length) // Double bang !!, es para ejecutar la excepción, no obstante no es una buena práctica
-    }catch (e: NullPointerException){
+    } catch (e: NullPointerException) {
         println("En esta aplicación no se admiten valores nulos")
     }
 
@@ -289,7 +289,7 @@ fun main(args: Array<String>){
     /**
      * Ejercicio utilizando listas con valores nulos y realizar el filtrado respectivo
      */
-    val listWithNulls: List<Int?> = listOf<Int?>(7,null,null,6) // Nótese como se declara un array que acepte valores
+    val listWithNulls: List<Int?> = listOf<Int?>(7, null, null, 6) // Nótese como se declara un array que acepte valores
     //nulos, mediante Int?
     println(listWithNulls)
 
@@ -298,6 +298,33 @@ fun main(args: Array<String>){
     println(listWithoutNulls)
 
 
+    /**
+     * CLASE ACERCA DE ARRAYS
+     * LOS ARRAYS SIEMPRE SERÁN EN PLURAL
+     */
+    val countries: Array<String> = arrayOf("India", "Mexico", "Colombia", "Argentina", "Chile", "Costa Rica")
+
+    val days: Array<String> = arrayOf<String>("Lunes", "Martes", "Miercoles")
+
+    val numbers: IntArray = intArrayOf(1, 2, 3, 4, 45, 34, 10, 15, 13)
+
+    //Imprimiendo un array de una manera sencilla
+    for (day in days) {
+        println("Días: $day")
+    }
+
+    //Promedio de los numeros
+    var suma =0
+    for(num in numbers){
+
+        suma += num // Se suma cada uno de los números contemplados en el array, recorridos a través del for
+    }
+    val promedio = suma / numbers.size // Se divide el resultado de la sumatoria de los valores entre la cantidad de
+                                       // de valores contemplado a través  del arreglo. Dicho valor se obtiene a través
+                                       // del método .size
+    println("El promedio del arreglo numbers es: $promedio")
+
 }
+
 
 
