@@ -193,6 +193,111 @@ fun main(args: Array<String>){
 
     daysOfWeek.withIndex().forEach{
         println("${it.index} => ${it.value}")}
+
+    /**
+     * CLASE DE BREAK, CONTINUE Y LABELS EN KOTLIN
+     */
+    //BREAK - Acá podemos ver 2 for anidados, i recorre 3 valores (1,2 y 3), mientras que j debería de recorrer 5, no
+    //obstante se declara un if que al llegar j al valor de 3 se detenga e imprima los valores de las variables i y j
+    for (i in 1..3){
+        println("\ni: $i")
+        for (j in 1..5){
+            if (j.equals(3)) break
+            println("j: $j")
+        }
+    }
+
+    //CONTINUE - En este caso se declara un if en la que si la variable j es igual a 3 debe de continuar, lo que hace que
+    //el print de 3 se omita y continue con los valores 4 y 5
+    for (i in 1..3){
+        println("\ni: $i")
+        for (j in 1..5){
+
+            if (j.equals(3))continue
+            println("j: $j")
+        }
+    }
+
+    //LABELS - Se utilizan para definir en que ciclo continuar una vez que un ciclo se detiene, es decir cuál será el
+    //siguiente ciclo al que saltará. Siempre irá acompañado por brak o continue
+
+    //BREAK Y LABEL -- En este caso se termina el ciclo donde inicia y termina el label @terminarTodoCiclo
+     terminarTodoCiclo@for (i in 1..3){
+        println("\ni: $i")
+         for (j in 1..3){
+            println("\nj: $j")
+            for (k in 1..5){
+                if (k.equals(3)) break@terminarTodoCiclo
+                println("k: $k")
+            }
+        }
+    }
+
+    //CONTINUE UTILIZANDO LABEL-- hace saltar o escapar una iteración entera que en este caso es J.
+    //
+    println()
+    terminar@for (i in 1..3){
+        println("\ni: $i")
+        for (j in 1..3){
+            println("\nj: $j")
+            for (k in 1..5){
+                if (k.equals(3)) continue@terminar
+                println("k: $k")
+            }
+        }
+    }
+
+    /**
+     * Null and DoubleBang
+     */
+    val nula :Int? // SE DECLARA UNA VARIABLE NULA DE FORMA QUE KOTLIN NO ARROJA UN NullPointerException
+
+    //var msg: String?
+    //msg = null
+    //println(msg!!.length) // Double bang !!, es para ejecutar la excepción, no obstante no es una buena práctica
+
+
+    /**
+     * Ejemplos de variables con valores null, combinando double bang y el operador elvis
+     * Siendo  estas algunas formas de un buen manejo de variables null
+     */
+    try {
+        var computer: String? = null // SE DECLARA UNA VARIABLE NULA DE FORMA QUE KOTLIN NO ARROJA UN NullPointerException
+        println(computer!!.length) // Double bang !!, es para ejecutar la excepción, no obstante no es una buena práctica
+    }catch (e: NullPointerException){
+        println("En esta aplicación no se admiten valores nulos")
+    }
+
+    /**
+     * Usando el simbolo de pregunta al declarar la variable nula y al imprimirla antes de llamar el método .length
+     * Llamada segura
+     */
+    var compute: String? = null
+    var longitud: Int? = compute?.length // De esta forma podemos imprimir valores nulos sin arrojar la excepción
+    println("Longitud: $longitud")
+
+
+    /**
+     * Operador Elvis
+     */
+    var teclado: String? = null
+    var longitudTeclado: Int = teclado?.length ?: 0 //Acá utilizamos el operador elvis para reemplazar el valor null por
+    // el valor 0. Elvis es muy similar a un operador ternario, solo que de nulls. Nótese que en ningún momento se
+    // declaró como null la variable longitudTeclado
+    println("Longitud del teclado: $longitudTeclado")
+
+    /**
+     * Ejercicio utilizando listas con valores nulos y realizar el filtrado respectivo
+     */
+    val listWithNulls: List<Int?> = listOf<Int?>(7,null,null,6) // Nótese como se declara un array que acepte valores
+    //nulos, mediante Int?
+    println(listWithNulls)
+
+    //REALIZANDO EL FILTRO PARA REMOVER LOS VALORES NULL
+    val listWithoutNulls: List<Int?> = listWithNulls.filterNotNull()
+    println(listWithoutNulls)
+
+
 }
 
 
