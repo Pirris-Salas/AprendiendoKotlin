@@ -302,10 +302,14 @@ fun main(args: Array<String>) {
      * CLASE ACERCA DE ARRAYS
      * LOS ARRAYS SIEMPRE SERÁN EN PLURAL
      */
+
+    //ESTE ES UN ARRAY QUE SOPORTA OBJETOS
     val countries: Array<String> = arrayOf("India", "Mexico", "Colombia", "Argentina", "Chile", "Costa Rica")
 
+    //ESTE ES UN ARRAY QUE SOPORTA OBJETOS
     val days: Array<String> = arrayOf<String>("Lunes", "Martes", "Miercoles")
 
+    //ESTE ES UN ARRAY QUE SOPORTA DATOS PRIMITIVOS Y POR ESO NOS PERMITE USAR OPERADORES PRIMITIVOS
     val numbers: IntArray = intArrayOf(1, 2, 3, 4, 45, 34, 10, 15, 13)
 
     //Imprimiendo un array de una manera sencilla
@@ -323,6 +327,40 @@ fun main(args: Array<String>) {
                                        // de valores contemplado a través  del arreglo. Dicho valor se obtiene a través
                                        // del método .size
     println("El promedio del arreglo numbers es: $promedio")
+
+    /**
+     * En esta clase, veremos como convertir un array de objectos a primitivo y a su vez utilizar funciones asignadas
+     * a los array de objetos en Kotlin
+     */
+
+    var arrayObject :Array<Int> = arrayOf(1,2,3)  // Array de objetos
+    var arrayPrimitive :IntArray = arrayObject.toIntArray() // Declaramos un array primitivo y convertimos el array
+                                                            // de objetos a un array primitivo
+
+    //METODOS DE ARRAY DE OBJETOS
+
+    var sum = arrayObject.sum()
+    println("La suma del array de objetos es: $sum") // METODO SUMA DE ARRAYS
+
+    // MEDIANTE ESTE MÉTODO PODEMOS AGREGAR VALORES A LOS ARREGLOS .plus()
+    arrayObject = arrayObject.plus(4)
+    for (a in arrayObject){
+        println("Array: $a")
+    }
+
+    //CON EL MÉTODO .reversedArray() invertimos todos los números dentro del arreglo de manera permanete hasta que con
+    //otra sentencia se restaure el orden de los valores
+    arrayObject = arrayObject.reversedArray()
+    for (a in arrayObject){
+        println("Array en orden reverso: $a")
+    }
+
+    //CON ESTE MÉTODO COLOCAMOS UN REVERSE AL PREVIO REVERSE DEJANDO EL ORDEN DE LOS DATOS A COMO ESTABAN AL PRINCIPIO
+    // MUY IMPORTANTE TENER NOCIÓN DE ESTE COMANDO Y EL ORDEN ACTUAL DE LOS VALORES
+    arrayObject.reverse()
+    for (a in arrayObject){
+        println("Array en orden original: $a")
+    }
 
 }
 
