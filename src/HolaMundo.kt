@@ -389,6 +389,22 @@ fun main(args: Array<String>) {
     val numeros: IntArray = intArrayOf(2,3,4,7)
     println("El promedio del arreglo es: ${promedioNumeros(numeros, 2)}")
 
+
+    /**
+     * En esta clase evaluaremos funciones con parametros con valores por defecto
+     * Es decir, no es estrictamente necesario que les declaremos valores ya que ya los tiene, no obstante los mismos
+     * pueden ser reemplazados.
+     * Un punto muy importante es que debemos cuidar el orden de los parametros, en la forma en la que los enviamos
+     */
+
+    println(evaluate()) // Imprimir sin enviar valores a la funcion evaluate()
+    println("${evaluate('/',2)} 2 es igual a 1") // Se reemplazan los valores por defecto de la
+                                                                // funcion evaluate()
+    println("${evaluate(numero = 6)}") // Acá pasamos solo el valor del número y dejamos el valor de character
+                                       // por defecto
+    println("${evaluate(character = '*')}") //Acá pasamos solo el valor de la varaible character y dejamos por defecto
+                                            // el valor de la variable número
+
 }
 
 /**
@@ -408,6 +424,21 @@ fun promedioNumeros (numeros: IntArray, n: Int): Int{
         sum += a
     }
     return (sum / numeros.size) + n
+}
+
+
+/**
+ * En esta funcion, como verán, estamos declarando variables con valores predeterminados.
+ * Que estén ya asignados no significa que no puedan ser reemplazados. No osbtante en caso de no recibir los parametros
+ * La misma se ejecutaría bajo los valores por defecto
+ * @param character Acepta un caracter, variable tipo Char
+ * @param numero Acepta numeros, variable tipo Int
+ * @author Luis Salas
+ */
+fun evaluate (character: Char = '=', numero: Int = 2) : String{
+
+    return "${numero} ${character}" // esto se puede declarar sin llaves si así lo quisieramos, es solo un
+    //ejemplo de formas de devolver parametros
 }
 
 
