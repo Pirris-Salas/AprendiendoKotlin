@@ -1,3 +1,5 @@
+import model.Camera
+
 const val N = "Name" // Const siempre se declara como variables globales y nunca como variables locales
 // Const se asigna en el proceso de compilación
 
@@ -441,6 +443,17 @@ fun main(args: Array<String>) {
     }
     println(calculateNumber(2))
 
+    /**
+     * ACÁ TRAEREMOS LOS MÉTODOS DE LA CLASE CAMERA DE UNA MANERA MUY BÁSICA
+     */
+
+    val camera = Camera() //IGUALAMOS LA CLASE A UNA VARIABLES
+    camera.turnOn() //TRAEMOS EL MÉTODO .isOn() PARA ASIGNAR A LA VARIABLES isOn EL VALOR TRUE
+    println("La camara está encendida? : ${camera.isOn}")
+
+    // ESTO NO DEBERÍA DE SER PERMITIDO YA QUE ESTAMOS MODIFICANDO UNA CLASE DESDE OTRA CLASE DE MANERA NO CONTROLADA
+    camera.isOn = false
+    println(camera.isOn)
 }
 
 /**
@@ -475,6 +488,8 @@ fun evaluate (character: Char = '=', numero: Int = 2): String{
 
     return "${numero} ${character}" // esto se puede declarar sin llaves si así lo quisieramos, es solo un
     //ejemplo de formas de devolver parametros
+
+
 }
 
 
