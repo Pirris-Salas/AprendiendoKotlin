@@ -318,14 +318,14 @@ fun main(args: Array<String>) {
     }
 
     //Promedio de los numeros
-    var suma =0
-    for(num in numbers){
+    var suma = 0
+    for (num in numbers) {
 
         suma += num // Se suma cada uno de los números contemplados en el array, recorridos a través del for
     }
     val promedio = suma / numbers.size // Se divide el resultado de la sumatoria de los valores entre la cantidad de
-                                       // de valores contemplado a través  del arreglo. Dicho valor se obtiene a través
-                                       // del método .size
+    // de valores contemplado a través  del arreglo. Dicho valor se obtiene a través
+    // del método .size
     println("El promedio del arreglo numbers es: $promedio")
 
     /**
@@ -333,9 +333,9 @@ fun main(args: Array<String>) {
      * a los array de objetos en Kotlin
      */
 
-    var arrayObject :Array<Int> = arrayOf(1,2,3)  // Array de objetos
-    var arrayPrimitive :IntArray = arrayObject.toIntArray() // Declaramos un array primitivo y convertimos el array
-                                                            // de objetos a un array primitivo
+    var arrayObject: Array<Int> = arrayOf(1, 2, 3)  // Array de objetos
+    var arrayPrimitive: IntArray = arrayObject.toIntArray() // Declaramos un array primitivo y convertimos el array
+    // de objetos a un array primitivo
 
     //METODOS DE ARRAY DE OBJETOS
 
@@ -344,21 +344,21 @@ fun main(args: Array<String>) {
 
     // MEDIANTE ESTE MÉTODO PODEMOS AGREGAR VALORES A LOS ARREGLOS .plus()
     arrayObject = arrayObject.plus(4)
-    for (a in arrayObject){
+    for (a in arrayObject) {
         println("Array: $a")
     }
 
     //CON EL MÉTODO .reversedArray() invertimos todos los números dentro del arreglo de manera permanete hasta que con
     //otra sentencia se restaure el orden de los valores
     arrayObject = arrayObject.reversedArray()
-    for (a in arrayObject){
+    for (a in arrayObject) {
         println("Array en orden reverso: $a")
     }
 
     //CON ESTE MÉTODO COLOCAMOS UN REVERSE AL PREVIO REVERSE DEJANDO EL ORDEN DE LOS DATOS A COMO ESTABAN AL PRINCIPIO
     // MUY IMPORTANTE TENER NOCIÓN DE ESTE COMANDO Y EL ORDEN ACTUAL DE LOS VALORES
     arrayObject.reverse()
-    for (a in arrayObject){
+    for (a in arrayObject) {
         println("Array en orden original: $a")
     }
 
@@ -370,7 +370,7 @@ fun main(args: Array<String>) {
      */
 
     var w = 5
-    println("w es igual a 5? ${w==5}") // DEBE DE DEVOLVER TRUE
+    println("w es igual a 5? ${w == 5}") // DEBE DE DEVOLVER TRUE
 
     var mensaje = "El valor de w es $w"
     w = w.inc()
@@ -386,7 +386,7 @@ fun main(args: Array<String>) {
      * FUNCION POR DEFECTO ES .MATH()
      */
 
-    val numeros: IntArray = intArrayOf(2,3,4,7)
+    val numeros: IntArray = intArrayOf(2, 3, 4, 7)
     println("El promedio del arreglo es: ${promedioNumeros(numeros, 2)}")
 
 
@@ -398,12 +398,48 @@ fun main(args: Array<String>) {
      */
 
     println(evaluate()) // Imprimir sin enviar valores a la funcion evaluate()
-    println("${evaluate('/',2)} 2 es igual a 1") // Se reemplazan los valores por defecto de la
-                                                                // funcion evaluate()
+    println("${evaluate('/', 2)} 2 es igual a 1") // Se reemplazan los valores por defecto de la
+    // funcion evaluate()
     println("${evaluate(numero = 6)}") // Acá pasamos solo el valor del número y dejamos el valor de character
-                                       // por defecto
+    // por defecto
     println("${evaluate(character = '*')}") //Acá pasamos solo el valor de la varaible character y dejamos por defecto
-                                            // el valor de la variable número
+    // el valor de la variable número
+
+
+    /**
+     * EN ESTA CLASE APRENDEREMOS ACERCA DE LA SINTAXIS DE LAMBAS, CONOCIDAS COMO FUNCIONES ANONIMAS
+     * LOS PRIMEROS 2 EJEMPLOS SON DE SINTAXIS BÁSICA
+     */
+    var hola = { println("Hola Luis Salas") }
+    hola()
+
+
+
+    // EN ESTA FUNCION DECLARAMOS LAS VARIABLES TIPO ENTERO, Y CON EL SIMBOLO -> DAMOS INICIO A LA OPERACIÓN DE LA
+    //FUNCIÓN, LA CUAL ES SUMAR d+c, y a través de p(3,3) pasamos los parametros para que se ejecute el resultado.
+    //ESTA ES UNA FUNCION ANONIMA SIN PARAMETROS CON VALORES DEFINIDOS
+    val p = {d: Int, c: Int -> d+c}
+    println(p(3,3))
+
+
+    //ESTA ES OTRA FORMA, EJECUTAMOS LA FUNCION DENTRO DE LA FUNCION PRINTLN Y PASAMOS LOS PARAMETROS.
+    //TODO EN UNA SOLA LÍNEA
+    println({d: Int, c: Int -> d*c}(4,5))
+
+
+    /**
+     * En esta clase 2 acerca de lambdas, veremos ejemplos un poco más complejos
+     * Este es un ejemplo en el que ejecutamos la sentencia When dentro de un lambda
+     */
+    val calculateNumber :(Int) -> Unit = {n: Int ->
+        when(n){
+            in 1..3 -> println("Su número está dentro del rango de 1 a 3")
+            in 4..7 -> println("Su número está dentro del rango de 4 a 7")
+            in 8..10 -> println("Su número está dentro del rango de 8 a 10")
+            else -> println("Número digitado no está dentro de los rangos a evaluar")
+        }
+    }
+    println(calculateNumber(2))
 
 }
 
@@ -435,7 +471,7 @@ fun promedioNumeros (numeros: IntArray, n: Int): Int{
  * @param numero Acepta numeros, variable tipo Int
  * @author Luis Salas
  */
-fun evaluate (character: Char = '=', numero: Int = 2) : String{
+fun evaluate (character: Char = '=', numero: Int = 2): String{
 
     return "${numero} ${character}" // esto se puede declarar sin llaves si así lo quisieramos, es solo un
     //ejemplo de formas de devolver parametros
