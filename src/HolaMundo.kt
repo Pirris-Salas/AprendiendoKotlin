@@ -1,4 +1,5 @@
 import model.Camera
+import model.Shoe
 
 const val N = "Name" // Const siempre se declara como variables globales y nunca como variables locales
 // Const se asigna en el proceso de compilación
@@ -479,7 +480,19 @@ fun main(args: Array<String>) {
     camera.setMemory(8)
     println("Capacidad de almacenamiento interno: " + camera.getMemory() + "GB")
 
+    /**
+     * EN ESTA CLASE, APRENDEMOS ACERCA DE LOS MÉTODOS SETTERS Y GETTERS POR DEFECTO DE KOTLIN
+     * TAMBIÉN CONOCIDOS COMO CLASES PARA DATOS O DATA CLASS
+     * EN ESTA CLASE APRENDEMOS A DECLARARLAS EN LA CLASE PADRE Y A VALIDAR LOS DATOS
+     */
+    var shoe = Shoe()
+    shoe.size = 42
+    println(shoe.size)
 
+    println(shoe.color)
+
+    shoe.model = "Botines"
+    println(shoe.model)
 
 }
 
