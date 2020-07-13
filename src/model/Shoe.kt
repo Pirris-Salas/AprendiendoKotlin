@@ -1,18 +1,43 @@
 package model
 
-import kotlin.time.measureTimedValue
-
 /**
  * Al colocar los parentesis damos inicio a un método constructor primario y dentro del mismo podemos
  * inicializar las variables. Kotlin automáticamente nos habilitará los setters y getters por default de
  * dichas variables
  */
-class Shoe (val sku: Int, val marca: String) : Any(){ // Herencia () : Any(){}
+class Shoe (name: String, description: String, sku: Int, val brand: String) :
+        Product(name, description, sku){ // Herencia () : Product(){}, CONSTRUCTOR PRIMARIO DE LA CLASE PADRE HEREDADO
+
+   //EN LA HERENCIA AL HABER UN MÉTODO CONSTRUCTOR PADRE Y UNO HIJO LOS MISMOS DEBEN DE SER COMBINADOS EN LA CLASE HIJA
+
+
+// METODOS TRAIDOS A TRAVÉS DE LA HERENCIA ASIGNADA CON LA CLASE PRODUCT
+//EN LOS METODOS DE LA CLASE PRODUCT DEBEN DE IR ANTECEDIDOS POR LA PALABRA OPEN
+// PARA EJECUTAR UN MÉTODO Y SU RESULTADO DENTRO DE LA CLASE HIJA, SE DEBE ESCRIBIR LA PALABRA SUPER.nombre de la clase()
+    override fun create(): String {
+        return "CreateShoe"
+    }
+
+    override fun read(): String {
+        return "ReadShoe"
+    }
+
+    override fun update(): String {
+        return "UpdateShoe"
+    }
+
+    override fun delete(): String {
+        return "DeleteShoe"
+    }
+
 
     override fun toString(): String {
         // return super.toString() LA PALABRA SUPER DA A ENTENDER EL NIVEL DE ACCESO QUE TIENE ESTE MÉTODO, SOBRE TODAS
         // LAS CLASES
-        return "SKU ID: $sku \nMarca: $marca \nModelo: $model \nSize: $size \nColor: $color "
+        return super.toString() + "SKU ID: $sku \nMarca: $brand \nModelo: $model \nSize: $size \nColor: $color "
+
+        //ACÁ AGREGAMOS LAS PALABRAS SUPER.nombre de la clase, de forma que combinamos el método toString()
+        // de la clase padre Product() y de la clase hijo Show(). Se combina mediante concatenación +
     }
 
     /**
@@ -38,7 +63,7 @@ class Shoe (val sku: Int, val marca: String) : Any(){ // Herencia () : Any(){}
      */
     init {
         println("Su SKU ID es: $sku")
-        println("La marca es: $marca")
+        println("La marca es: $brand")
 
     }
 
