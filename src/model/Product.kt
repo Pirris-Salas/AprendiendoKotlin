@@ -1,6 +1,12 @@
 package model
 
-open class Product (var name: String, var description: String, var sku: Int) {
+/**
+ * Clase abstracta
+ * No puede ser instanciada, es decir no se pueden crear objetos de ella
+ * No obstante puede hospedar métodos y atributos base, que va a tener en común con todas sus clases hijas
+ */
+
+abstract class Product (var name: String, var description: String, var sku: Int) {
 
     //CRUD - Create / Read / Update / Delete
 
@@ -8,23 +14,23 @@ open class Product (var name: String, var description: String, var sku: Int) {
         return "Nombre: $name \nDescripción: $description \nSKU: $sku\n"
     }
 
-    open fun create(): String{
+    /**
+     * FUNCIONES ABSTRACTAS
+     * Se declaran anteponiendo la palabra abstract
+     * básicamente solo pueden existir dentro de clases abstractas y pueden/deben ser heredados por las clases hijas
+     * Son métodos base, que todas sus clases hijas van a re-utilizar y modificar cada una a su manera, acorde a
+     * las necesidades.
+     * Por ser clases tan base, no llevan contenido, ya que el mismo será agregado en las clases hijas acorde a sus
+     * necesidades. Los veo como recordatorios, para no olvidar los métodos fijos de las clases hijas
+     * Nota importante: Clases abstractas pueden tener métodos con contenido, ejemplo toString()
+     */
 
-        return "Create"
-    }
 
-    open fun read(): String{
+    abstract fun create(): String
 
-        return "Read"
-    }
+    abstract fun read(): String
 
-    open fun update(): String{
+    abstract fun update(): String
 
-        return "Update"
-    }
-
-    open fun delete(): String{
-
-        return "Delete"
-    }
+    abstract fun delete(): String
 }
