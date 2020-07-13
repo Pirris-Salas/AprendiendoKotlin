@@ -6,7 +6,9 @@ package model
  * dichas variables
  */
 class Shoe (name: String, description: String, sku: Int, val brand: String) :
-        Product(name, description, sku){ // Herencia () : Product(){}, CONSTRUCTOR PRIMARIO DE LA CLASE PADRE HEREDADO
+        Product(name, description, sku), ICrudActions{
+    // Herencia () : Product(){}, CONSTRUCTOR PRIMARIO DE LA CLASE PADRE HEREDADO
+    //,ICrudActions -> Herencia de la interfaz, se coloca después de la herencia
 
    //EN LA HERENCIA AL HABER UN MÉTODO CONSTRUCTOR PADRE Y UNO HIJO LOS MISMOS DEBEN DE SER COMBINADOS EN LA CLASE HIJA
 
@@ -14,7 +16,17 @@ class Shoe (name: String, description: String, sku: Int, val brand: String) :
 // METODOS TRAIDOS A TRAVÉS DE LA HERENCIA ASIGNADA CON LA CLASE PRODUCT
 //EN LOS METODOS DE LA CLASE PRODUCT DEBEN DE IR ANTECEDIDOS POR LA PALABRA OPEN
 // PARA EJECUTAR UN MÉTODO Y SU RESULTADO DENTRO DE LA CLASE HIJA, SE DEBE ESCRIBIR LA PALABRA SUPER.nombre de la clase()
+
+    //ESO APLICA SOLO PARA ABSTRACCIÓN O HERENCIA
+
+
+    //AHORA ESTAMOS UTILIZANDO INTERFACES Y LOS MÉTODOS PROVIENEN DE LA INTERFAZ ICrudActions
+    //INCLUSO EN LA CLASE CREATE ESTAMOS COMBINANDO EL MÉTODO saludar() INCRUSTADO EN EL MÉTODO create()
+    //DESTACAR QUE LAS CLASES ABSTRACTAS SUELEN UTILIZARCE PARA HEREDAR ATRIBUTOS Y PROPIEDADES
+    //LAS INTERFACES SUELEN UTILIZARSE PARA HEREDAR MÉTODOS, ACCIONES, COMPORTAMIENTOS
+
     override fun create(): String {
+    saludar("Jodiendo con Interfaces en Kotlin\n")
         return "CreateShoe"
     }
 

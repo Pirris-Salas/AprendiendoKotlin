@@ -23,7 +23,7 @@ abstract class Product (var name: String, var description: String, var sku: Int)
      * Por ser clases tan base, no llevan contenido, ya que el mismo será agregado en las clases hijas acorde a sus
      * necesidades. Los veo como recordatorios, para no olvidar los métodos fijos de las clases hijas
      * Nota importante: Clases abstractas pueden tener métodos con contenido, ejemplo toString()
-     */
+
 
 
     abstract fun create(): String
@@ -33,4 +33,5 @@ abstract class Product (var name: String, var description: String, var sku: Int)
     abstract fun update(): String
 
     abstract fun delete(): String
+    */
 }

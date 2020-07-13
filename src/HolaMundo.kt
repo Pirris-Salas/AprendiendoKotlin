@@ -509,6 +509,11 @@ fun main(args: Array<String>) {
 
 
     /**
+     * LLAMANDO AL METODO CREATE DE SHOE, YA QUE TRAE CONSIGO AL METODO SALUDAR HEREDADO MEDIANTE INTERFACES
+     */
+    shoe.create()
+
+    /**
      * LLAMANDO CLASES DATA CLASS A LA FUNCIÓN MAIN
      * CLASE DATA CLASS
      */
