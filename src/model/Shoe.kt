@@ -7,7 +7,27 @@ import kotlin.time.measureTimedValue
  * inicializar las variables. Kotlin automáticamente nos habilitará los setters y getters por default de
  * dichas variables
  */
-class Shoe (val sku: Int, val marca: String){
+class Shoe (val sku: Int, val marca: String) : Any(){ // Herencia () : Any(){}
+
+    override fun toString(): String {
+        // return super.toString() LA PALABRA SUPER DA A ENTENDER EL NIVEL DE ACCESO QUE TIENE ESTE MÉTODO, SOBRE TODAS
+        // LAS CLASES
+        return "SKU ID: $sku \nMarca: $marca \nModelo: $model \nSize: $size \nColor: $color "
+    }
+
+    /**
+     * Herencia y Polimorfismo
+     * Herencia, se utiliza mediante la colocación de : "dos puntos" después del método constructor primario de la
+     * clase
+     * Clase Any() - Conocida como superclase, en Kotlin es la clase padre de todo el código por defecto
+     * Polimorfismo, básicamente se basa en reutilizar métodos de la clase padre.
+     * En este ejemplo tomamos el método toString() de la clase Any() y lo editamos a nuestro placer
+     * Algo curioso es que este método fué capaz de tomar los datos de todas las variables sin importar el scope
+     * del método. Para llamar un método de la clase padre utilizamos la palabra override
+     */
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Método Constructor Secundario

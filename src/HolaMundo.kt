@@ -499,6 +499,12 @@ fun main(args: Array<String>) {
     //println(shoe.marca)
     println()
 
+    /**
+     * Llamando el método toString() de la case Shoe(), utilizando polimorfismo
+     *
+     */
+    println(shoe.toString())
+    
 
     /**
      * LLAMANDO CLASES DATA CLASS A LA FUNCIÓN MAIN
