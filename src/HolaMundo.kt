@@ -450,7 +450,8 @@ fun main(args: Array<String>) {
     val camera = Camera() //IGUALAMOS LA CLASE A UNA VARIABLES
     camera.turnOn() //TRAEMOS EL MÉTODO .turnOn() PARA ASIGNAR A LA VARIABLE isOn EL VALOR TRUE
     camera.turnOff() //TRAEMOS EL MÉTODO .turnOff() PARA ASIGNAR A LA VARIABLE isOn EL VALOR FALSE
-    println(camera.cameraStatus())
+    println(camera.getCameraStatus())
+
 
     /**
      * ESTO ES UNA MALA PRÁCTICA
@@ -469,7 +470,14 @@ fun main(args: Array<String>) {
      */
 
 
+    camera.setResolution(720)
+    println("Resolución de la cámara: ${camera.getResolution()}")
 
+    camera.setBrand("Samsung")
+    println("Marca: " + camera.getBrand())
+
+    camera.setMemory(8)
+    println("Capacidad de almacenamiento interno: " + camera.getMemory() + "GB")
 
 
 
