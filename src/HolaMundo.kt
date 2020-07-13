@@ -485,7 +485,8 @@ fun main(args: Array<String>) {
      * TAMBIÉN CONOCIDOS COMO CLASES PARA DATOS O DATA CLASS
      * EN ESTA CLASE APRENDEMOS A DECLARARLAS EN LA CLASE PADRE Y A VALIDAR LOS DATOS
      */
-    var shoe = Shoe()
+    var shoe = Shoe(2534, "kOaLa") //Ahora para inicializar la clase, si o sí debemos de enviar los datos
+    //solicitados por el método constructor primario de la clase Shoe
     shoe.size = 42
     println(shoe.size)
 
@@ -493,6 +494,10 @@ fun main(args: Array<String>) {
 
     shoe.model = "Botines"
     println(shoe.model)
+
+    //println(shoe.sku)
+    //println(shoe.marca)
+    println()
 
 
     /**
