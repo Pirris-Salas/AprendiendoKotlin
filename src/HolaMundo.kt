@@ -1,4 +1,5 @@
 import model.Camera
+import model.Movie
 import model.Shoe
 
 const val N = "Name" // Const siempre se declara como variables globales y nunca como variables locales
@@ -417,25 +418,24 @@ fun main(args: Array<String>) {
     hola()
 
 
-
     // EN ESTA FUNCION DECLARAMOS LAS VARIABLES TIPO ENTERO, Y CON EL SIMBOLO -> DAMOS INICIO A LA OPERACIÓN DE LA
     //FUNCIÓN, LA CUAL ES SUMAR d+c, y a través de p(3,3) pasamos los parametros para que se ejecute el resultado.
     //ESTA ES UNA FUNCION ANONIMA SIN PARAMETROS CON VALORES DEFINIDOS
-    val p = {d: Int, c: Int -> d+c}
-    println(p(3,3))
+    val p = { d: Int, c: Int -> d + c }
+    println(p(3, 3))
 
 
     //ESTA ES OTRA FORMA, EJECUTAMOS LA FUNCION DENTRO DE LA FUNCION PRINTLN Y PASAMOS LOS PARAMETROS.
     //TODO EN UNA SOLA LÍNEA
-    println({d: Int, c: Int -> d*c}(4,5))
+    println({ d: Int, c: Int -> d * c }(4, 5))
 
 
     /**
      * En esta clase 2 acerca de lambdas, veremos ejemplos un poco más complejos
      * Este es un ejemplo en el que ejecutamos la sentencia When dentro de un lambda
      */
-    val calculateNumber :(Int) -> Unit = {n: Int ->
-        when(n){
+    val calculateNumber: (Int) -> Unit = { n: Int ->
+        when (n) {
             in 1..3 -> println("Su número está dentro del rango de 1 a 3")
             in 4..7 -> println("Su número está dentro del rango de 4 a 7")
             in 8..10 -> println("Su número está dentro del rango de 8 a 10")
@@ -494,6 +494,25 @@ fun main(args: Array<String>) {
     shoe.model = "Botines"
     println(shoe.model)
 
+
+    /**
+     * LLAMANDO CLASES DATA CLASS A LA FUNCIÓN MAIN
+     * CLASE DATA CLASS
+     */
+    var movie = Movie("John Wick", "Derek Kolstad", 107)
+    println("MOVIE")
+    println(movie.title)
+    println(movie.creator)
+    println("${movie.duration} .min")
+
+
+    //LLAMANDO A UNA DATA CLASS DECLARADA DENTRO DEL MISMO DOCUMENTO HolaMundo.kt
+    val vehiculos = Vehiculos("Civic LX", 2007, "Gris", "Honda")
+    println()
+    println("*** Mi Vehículo ***")
+    println("Es un ${vehiculos.marca} ${vehiculos.modelo}, color ${vehiculos.color.toLowerCase()} " +
+            "${vehiculos.añoFabricación}")
+
 }
 
 /**
@@ -531,6 +550,13 @@ fun evaluate (character: Char = '=', numero: Int = 2): String{
 
 
 }
+
+
+/**
+ * DECLARANDO UNA DATA CLASS DENTRO DEL DOCUMENTO HOLAMUNDO, CONTENEDOR DE LA CLASE HOLAMUNDO
+ */
+
+data class Vehiculos (val modelo: String, val añoFabricación: Int, val color: String,val marca: String )
 
 
 
