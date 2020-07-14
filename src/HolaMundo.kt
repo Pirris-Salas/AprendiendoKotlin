@@ -546,7 +546,36 @@ fun main(args: Array<String>) {
     println("El resultado de la multiplicación es: ${calculadora(3,2,1,::multiplicar)}")
 
     println("El resultado de la resta es: ${calculadora(8,4,2,::restar)}")
-    
+
+
+    /**
+     * RECURSIVIDAD KOTLIN
+     * UTILIZADOS PARA RECORRER LISTAS DE VARIAS DIMENSIONES
+     */
+    val months = hashMapOf("Enero" to 1, "Febrero" to 2, "Marzo" to 3, "Abril" to 4, "Mayo" to 5, "Junio" to 6,
+    "Julio" to 7, "Agosto" to 8, "Setiembre" to 9, "Octubre" to 10, "Noviembre" to 11, "Diciembre" to 12)
+
+    //Ordenando por lista
+    val sorted = months.toList().sortedBy { (key,value) ->value }.toMap()
+    println(sorted)
+
+    for (key in months.keys)
+        println("key:$key  value:${months["Enero"]}")
+
+
+    /**
+     * RECURSIVIDAD FILTER
+     */
+    val numbersInt = listOf(4,3,2)
+    println(numbersInt.filter { it % 2 == 0 })
+    //FILTRA EN LA LISTA TODOS LOS NÚMEROS QUE DIVIDIDOS ENTRE 2 REGRESEN EL VALOR 0
+    // ES DECIR, NÚMEROS PAR
+    // RECORDAR QUE IT ES LA VARIABLE POR DEFECTO EN LISTAS Y ARRAYS PARA REALIZAR RECORRIDOS
+
+    val words = listOf("Oasis", "Hola", "Holanda", "Objeto")
+    val filtro = words.filter { it.startsWith('O') }
+    println(filtro)
+    //FILTRA LAS PALABRAS QUE INICIEN CON LA LETRA O
 }
 
 /**
