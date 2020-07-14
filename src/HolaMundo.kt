@@ -530,11 +530,46 @@ fun main(args: Array<String>) {
     println("*** Mi Vehículo ***")
     println("Es un ${vehiculos.marca} ${vehiculos.modelo}, color ${vehiculos.color.toLowerCase()} " +
             "${vehiculos.añoFabricación}")
+    println()
 
+    /**
+     * Invocando a una funcion de orden superior
+     * Se le asigna el resultado de la operación a una variable y a esta se le pasan los datos
+     * Una vez pasados los valores de los parametros se asigna ,:: seguido del nombre de la funcion a ejecutar
+     *
+     */
+    val resultado = calculadora(2,4,6, ::sumar)
+    println("El resultado de la suma es: ${resultado}")
+
+    //OTRA FORMA DE DECLARAR LA FUNCION DE ORDEN SUPERIOR, PASANDO LOS DATOS A TRAVÉS DEL SCOPE DE UNA
+    // EXPRESIÓN DENTRO DEL PRINTLN
+    println("El resultado de la multiplicación es: ${calculadora(3,2,1,::multiplicar)}")
+
+    println("El resultado de la resta es: ${calculadora(8,4,2,::restar)}")
+    
 }
 
 /**
- * Esta funcion determina el promedio de un arreglo de numeros y le suma un número al final
+ * FUNCIONES DE ORDEN SUPERIOR
+ * SON FUNCIONES DE CARACTER MUY GENÉRICO
+ * SE URILIZAN PARA AHORRAR CÓDIGO
+ * TOMAN PARÁMETROS EN COMÚN Y EJECUTAN ACCIONES QUE TENGAN DICHOS PARÁMETROS EN COMÚN
+ */
+fun calculadora (a:Int, b: Int, c:Int, operacion:(Int,Int,Int) ->  Int):Int{
+    return operacion(a,b,c)
+}
+
+/**
+ * Estas son las funciones a ser pasadas a través de la función de orden superior, notar que comparten los mismos
+ * parámetros y realizan diferentes operaciones pero con el mismo tipo de parámetros
+ */
+fun sumar(a: Int, b: Int, c: Int) = a+b+c
+fun restar(a: Int, b: Int, c: Int) = a-b-c
+fun multiplicar(a: Int, b: Int, c: Int) = a*b*c
+
+
+/**
+* Esta funcion determina el promedio de un arreglo de numeros y le suma un número al final
  * @param numeros Arreglo de números, o array
  * @param n Variable que será sumada al promedio
  * @return devuelve el promedio más un numero a elección
